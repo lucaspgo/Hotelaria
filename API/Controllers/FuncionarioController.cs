@@ -29,6 +29,15 @@ namespace API.Controllers
             return Created("", funcionario);
         }
 
+        [HttpPut]
+        [Route("update")]
+        public IActionResult Update([FromBody]Funcionario funcionario)
+        {
+            _context.Funcionarios.Update(funcionario);
+            _context.SaveChanges();
+            return Created("", funcionario);
+        }
+
         [HttpGet]
         [Route("list")]
         public IActionResult List() => Ok(_context.Funcionarios.ToList());

@@ -29,6 +29,15 @@ namespace API.Controllers
             return Created("", produto);
         }
 
+        [HttpPut]
+        [Route("update")]
+        public IActionResult Update([FromBody]Quarto quarto)
+        {
+            _context.Quartos.Update(quarto);
+            _context.SaveChanges();
+            return Created("", quarto);
+        }
+
         [HttpGet]
         [Route("list")]
         public IActionResult List() => Ok(_context.Quartos.ToList());

@@ -29,6 +29,15 @@ namespace API.Controllers
             return Created("", cliente);
         }
 
+        [HttpPut]
+        [Route("update")]
+        public IActionResult Update([FromBody]Cliente cliente)
+        {
+            _context.Clientes.Update(cliente);
+            _context.SaveChanges();
+            return Created("", cliente);
+        }
+
         [HttpGet]
         [Route("list")]
         public IActionResult List() => Ok(_context.Clientes.ToList());

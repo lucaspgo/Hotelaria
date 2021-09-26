@@ -29,6 +29,15 @@ namespace API.Controllers
             return Created("", reserva);
         }
 
+        [HttpPut]
+        [Route("update")]
+        public IActionResult Update([FromBody]Reserva reserva)
+        {
+            _context.Reservas.Update(reserva);
+            _context.SaveChanges();
+            return Created("", reserva);
+        }
+
         [HttpGet]
         [Route("list")]
         public IActionResult List() => Ok(_context.Reservas.ToList());
