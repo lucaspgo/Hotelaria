@@ -29,12 +29,12 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             //Configurar a politica de Cors
-            services.AddCors(
-                options =>
-                {
-                    options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin());
-                }
-            )
+            // services.AddCors(
+            //     options =>
+            //     {
+            //         options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin());
+            //     }
+            // )
 
             //Configurar todas as injeções de dependência do seu projeto
             services.AddDbContext<DataContext>(
@@ -58,7 +58,7 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
-            app.UseCors("CorsPolicy");
+            //app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 

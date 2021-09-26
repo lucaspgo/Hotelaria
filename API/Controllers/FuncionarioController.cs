@@ -19,6 +19,21 @@ namespace API.Controllers
         {
             _context = context;
         }
+
+        [HttpPost]
+        [Route("login")]
+        public IActionResult Login([FromBody]Funcionario funcionario)
+        {
+            Funcionario funcionarioCredencial = _context.Funcionarios.Where(x => x.Login == funcionario.Login).Where(x => x.Senha == funcionario.Senha).FirstOrDefault();
+            if (funcionarioCredencial != null)
+            {
+                return Ok(funcionarioCredencial);
+            }
+            else
+            {
+                return Forbid();
+            }
+        }
         
         [HttpPost]
         [Route("create")]
