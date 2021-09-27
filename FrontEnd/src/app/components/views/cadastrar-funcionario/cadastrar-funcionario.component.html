@@ -1,0 +1,13 @@
+<div id="container">
+    <div id="login-card">
+        <h1>Cadastro - Hotelaria</h1>
+        <p>Seja bem-vindo à hotelaria</p>
+        <input type="text" placeholder="Insira seu CPF" [(ngModel)]="cpf">
+        <input type="text" placeholder="Insira seu Nome" [(ngModel)]="nome">
+        <input type="text" placeholder="Insira seu Login" [(ngModel)]="login">
+        <input type="password" placeholder="Insira sua Senha" [(ngModel)]="senha">
+
+        <button (click)="cadastrarFuncionario()">Cadastrar</button>
+    </div>
+</div>
+
