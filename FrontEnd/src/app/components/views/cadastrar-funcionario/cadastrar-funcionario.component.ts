@@ -9,7 +9,7 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
   styleUrls: ['./cadastrar-funcionario.component.scss']
 })
 export class CadastrarFuncionarioComponent implements OnInit {
-  cpf!: number;
+  cpf!: string;
   nome!: string;
   login!: string;
   senha!: string;

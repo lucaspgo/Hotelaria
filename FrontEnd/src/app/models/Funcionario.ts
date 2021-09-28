@@ -1,6 +1,6 @@
 export interface Funcionario{
     id?: number;
-    cpf?: number;
+    cpf?: string;
     nome?: string;
     login: string;
     senha: string;

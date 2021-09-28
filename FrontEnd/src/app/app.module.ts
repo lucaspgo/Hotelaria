@@ -9,13 +9,15 @@ import { LoginComponent } from "./components/views/login/login.component";
 import { CadastrarFuncionarioComponent } from './components/views/cadastrar-funcionario/cadastrar-funcionario.component';
 import { NavbarComponent } from './components/views/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListarFuncionarioComponent } from './components/views/listar-funcionario/listar-funcionario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CadastrarFuncionarioComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListarFuncionarioComponent
   ],
   imports: [
     BrowserModule,
