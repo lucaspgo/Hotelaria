@@ -28,4 +28,8 @@ export class FuncionarioService {
     console.log(funcionario);
     return this.http.post<Funcionario>(`${this.baseUrl}/create`, funcionario)
     }
+
+  delete(funcionario: Funcionario): Observable<Funcionario>{
+    return this.http.delete<Funcionario>(`${this.baseUrl}/delete/${funcionario.id}`)
+  }
 }  

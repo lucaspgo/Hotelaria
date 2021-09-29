@@ -22,5 +22,9 @@ export class ListarFuncionarioComponent implements OnInit {
     this.router.navigate([`funcionario/editar/${id}`]);
   }
 
-  onDelete(funcionario: Funcionario): void {}
+  onDelete(funcionario: Funcionario): void {
+    this.service.delete(funcionario).subscribe(() =>{
+      window.location.reload();
+    })
+  }
 }

@@ -13,3 +13,25 @@ input:focus-visible{
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+
+#edit-button{
+    background-image: linear-gradient(90deg,#ff7810 0%,#ffc705 100%);
+    padding: 0 15px;
+    border-radius: 8px;
+    transition: transform .2s;
+    border: none;
+}
+#edit-button:hover{
+    transform: scale(1.1);
+}
+
+#delete-button{
+    padding: 0 15px;
+    border-radius: 8px;
+    transition: transform .2s;
+    background-color: #e50000;
+    border: none;
+}
+#delete-button:hover{
+    transform: scale(1.1);
+}

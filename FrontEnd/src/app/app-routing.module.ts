@@ -21,6 +21,10 @@ const routes: Routes = [
     path: "funcionario/listar",
     component: ListarFuncionarioComponent, 
   },
+    {
+    path: "funcionario/editar/:id",
+    component: CadastrarFuncionarioComponent, 
+  },
   {
     path: "quarto/listar",
     component: ListarQuartoComponent, 
