@@ -3,5 +3,5 @@ export interface Quarto {
     numero: string;
     precoDiaria: number;
     criadoEm?: string;
-    reservas: [];
+    reservas?: [];
 }

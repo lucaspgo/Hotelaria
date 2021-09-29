@@ -14,6 +14,7 @@ import { CadastrarQuartoComponent } from './components/views/quarto/cadastrar-qu
 import { EditarQuartoComponent } from './components/views/quarto/editar-quarto/editar-quarto.component';
 import { ListarQuartoComponent } from './components/views/quarto/listar-quarto/listar-quarto.component';
 import { ExcluirQuartoComponent } from './components/views/quarto/excluir-quarto/excluir-quarto.component';
+import { FormQuartoComponent } from './components/views/quarto/form-quarto/form-quarto.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ExcluirQuartoComponent } from './components/views/quarto/excluir-quarto
     EditarQuartoComponent,
     ListarQuartoComponent,
     ExcluirQuartoComponent,
+    FormQuartoComponent,
   ],
   imports: [
     BrowserModule,
