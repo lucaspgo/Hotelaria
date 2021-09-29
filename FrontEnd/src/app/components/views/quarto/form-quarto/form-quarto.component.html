@@ -1,1 +1,36 @@
-<p>form-quarto works!</p>
+<form class="needs-validation" novalidate [formGroup]="form">
+  <div class="col-md-4">
+    <label for="numero" class="form-label">Numero</label>
+    <input
+      type="text"
+      class="form-control"
+      id="numero"
+      formControlName="numero"
+      [ngClass]="{ 'is-invalid': submitted && hasError('numero') }"
+      required
+    />
+    <div class="invalid-feedback" *ngIf="hasError('numero') && hasError('numero')!['required']">
+        Por favor informe um numero para o quarto
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="precoDiaria" class="form-label">Preco Diaria</label>
+    <input
+      type="number"
+      class="form-control"
+      id="precoDiaria"
+      formControlName="precoDiaria"
+      [ngClass]="{ 'is-invalid': submitted && hasError('numero') }"
+      required
+    />
+    <div class="invalid-feedback" *ngIf="hasError('precoDiaria') && hasError('precoDiaria')!['required']">
+      Por favor informe um preço de fiária para o quarto
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+    Salvar
+  </button>
+  <button type="submit" class="btn btn-default" (click)="onCancel()">
+    Cancelar
+  </button>
+</form>

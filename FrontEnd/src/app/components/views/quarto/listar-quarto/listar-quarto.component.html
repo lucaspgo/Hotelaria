@@ -13,7 +13,7 @@
         <tr *ngFor="let quarto of quartos;">
           <td>{{quarto.numero}}</td>
           <td>{{ quarto.precoDiaria }}</td>
-          <td><a routerLink="/quarto/editar"><button>Editar</button></a></td>
+          <td><a routerLink="/quarto/editar/{{ quarto.id }}"><button>Editar</button></a></td>
           <td><a routerLink="/quarto/excluir"><button>Excluir</button></a></td>
         </tr>
         </tbody>

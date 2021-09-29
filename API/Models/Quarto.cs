@@ -13,7 +13,7 @@ namespace API.Models
             Reservas = new List<Reserva>();
         }
         public int Id { get; set; }
-        public int Numero { get; set; }
+        public string Numero { get; set; }
         public double PrecoDiaria { get; set; }
         public DateTime CriadoEm { get; set; }
         public List<Reserva> Reservas { get; set; }

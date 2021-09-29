@@ -22,11 +22,12 @@ namespace API.Controllers
         
         [HttpPost]
         [Route("create")]
-        public IActionResult Create([FromBody]Quarto produto)
+        public IActionResult Create([FromBody]Quarto quarto)
         {
-            _context.Quartos.Add(produto);
+            Console.WriteLine("oi");
+            _context.Quartos.Add(quarto);
             _context.SaveChanges();
-            return Created("", produto);
+            return Created("", quarto);
         }
 
         [HttpPut]
@@ -47,12 +48,13 @@ namespace API.Controllers
         [Route("getbyid/{id}")]
         public IActionResult GetById([FromRoute]int id)
         {
-            Quarto produto = _context.Quartos.Find(id);
-            if(produto != null)
+            Quarto quarto = _context.Quartos.Find(id);
+            Console.WriteLine(quarto);
+            if(quarto == null)
             {
                 return NotFound();
             }
-            return Ok(produto);
+            return Ok(quarto);
         }
 
         [HttpDelete]
