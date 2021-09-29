@@ -11,7 +11,7 @@ namespace API.Models
             Quarto = new Quarto();
         }
         public int Id { get; set; }
-        public int Numero { get; set; }
+        public string Numero { get; set; }
         public Quarto Quarto{ get; set; }
         public Cliente Cliente{ get; set; }
         public DateTime Inicio { get; set; }
