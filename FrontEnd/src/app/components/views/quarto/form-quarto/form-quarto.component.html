@@ -22,7 +22,7 @@
         class="form-control"
         id="precoDiaria"
         formControlName="precoDiaria"
-        [ngClass]="{ 'is-invalid': submitted && hasError('numero') }"
+        [ngClass]="{ 'is-invalid': submitted && hasError('precoDiaria') }"
         required
       />
       <div class="invalid-feedback" *ngIf="hasError('precoDiaria') && hasError('precoDiaria')!['required']">

@@ -56,22 +56,16 @@ namespace API.Controllers
         }
 
         [HttpDelete]
-        [Route("delete/{name}")]
-        public IActionResult Delete([FromRoute] string name)
+        [Route("delete/{id}")]
+        public IActionResult Delete([FromRoute] Cliente cliente)
         {
-            // Buscar objeto na tabela com base no nome
-            Cliente cliente = _context.Clientes.FirstOrDefault
-            (
-                cliente => cliente.Nome.Equals(name) // && ||
-            );
-
-            if(cliente != null)
+            if(cliente == null)
             {
                 return NotFound();
             }
             _context.Clientes.Remove(cliente);
             _context.SaveChanges();
-            return Delete("");
+            return Ok();
         }
 
     }

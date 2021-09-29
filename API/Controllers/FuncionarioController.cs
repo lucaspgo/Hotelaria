@@ -22,7 +22,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login([FromBody]Funcionario funcionario)
+        public IActionResult Login([FromBody] Funcionario funcionario)
         {
             Funcionario funcionarioCredencial = _context.Funcionarios.Where(x => x.Login == funcionario.Login).Where(x => x.Senha == funcionario.Senha).FirstOrDefault();
             if (funcionarioCredencial != null)
@@ -34,10 +34,10 @@ namespace API.Controllers
                 return Forbid();
             }
         }
-        
+
         [HttpPost]
         [Route("create")]
-        public IActionResult Create([FromBody]Funcionario funcionario)
+        public IActionResult Create([FromBody] Funcionario funcionario)
         {
             _context.Funcionarios.Add(funcionario);
             _context.SaveChanges();
@@ -46,7 +46,7 @@ namespace API.Controllers
 
         [HttpPut]
         [Route("update")]
-        public IActionResult Update([FromBody]Funcionario funcionario)
+        public IActionResult Update([FromBody] Funcionario funcionario)
         {
             _context.Funcionarios.Update(funcionario);
             _context.SaveChanges();
@@ -60,10 +60,10 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("getbyid/{id}")]
-        public IActionResult GetById([FromRoute]int id)
+        public IActionResult GetById([FromRoute] int id)
         {
             Funcionario funcionario = _context.Funcionarios.Find(id);
-            if(funcionario != null)
+            if (funcionario != null)
             {
                 return NotFound();
             }
@@ -71,22 +71,16 @@ namespace API.Controllers
         }
 
         [HttpDelete]
-        [Route("delete/{name}")]
-        public IActionResult Delete([FromRoute] string name)
+        [Route("delete/{id}")]
+        public IActionResult Delete([FromRoute] Funcionario funcionario)
         {
-            // Buscar objeto na tabela com base no nome
-            Funcionario funcionario = _context.Funcionarios.FirstOrDefault
-            (
-                funcionario => funcionario.Nome.Equals(name) // && ||
-            );
-
-            if(funcionario != null)
+            if (funcionario == null)
             {
                 return NotFound();
             }
             _context.Funcionarios.Remove(funcionario);
             _context.SaveChanges();
-            return Delete("");
+            return Ok();
         }
 
     }

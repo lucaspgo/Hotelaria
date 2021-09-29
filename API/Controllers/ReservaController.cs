@@ -56,22 +56,16 @@ namespace API.Controllers
         }
 
         [HttpDelete]
-        [Route("delete/{name}")]
-        public IActionResult Delete([FromRoute] string id)
+        [Route("delete/{id}")]
+        public IActionResult Delete([FromRoute] Reserva reserva)
         {
-            // Buscar objeto na tabela com base no nome
-            Reserva reserva = _context.Reservas.FirstOrDefault
-            (
-                reserva => reserva.Id.Equals(id) // && ||
-            );
-
-            if(reserva != null)
+            if (reserva == null)
             {
                 return NotFound();
             }
             _context.Reservas.Remove(reserva);
             _context.SaveChanges();
-            return Delete("");
+            return Ok();
         }
 
     }
