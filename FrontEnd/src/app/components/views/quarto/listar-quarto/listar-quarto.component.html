@@ -1,0 +1,21 @@
+<div>
+    <h1>Funcionarios</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Numero</th>
+          <th scope="col">Preço Diária</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let quarto of quartos;">
+          <td>{{quarto.numero}}</td>
+          <td>{{ quarto.precoDiaria }}</td>
+          <td><a routerLink="/quarto/editar"><button>Editar</button></a></td>
+          <td><a routerLink="/quarto/excluir"><button>Excluir</button></a></td>
+        </tr>
+        </tbody>
+      </table>
+</div>

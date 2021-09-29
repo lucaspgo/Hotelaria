@@ -1,4 +1,4 @@
-import { FuncionarioService } from './../../../services/funcionario.service';
+import { FuncionarioService } from '../../../../services/funcionario.service';
 import { Component, OnInit } from '@angular/core';
 import { Funcionario } from 'src/app/models/Funcionario';
 

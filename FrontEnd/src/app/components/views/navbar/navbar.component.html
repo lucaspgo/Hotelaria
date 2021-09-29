@@ -3,14 +3,14 @@
         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Cliente</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <button ngbDropdownItem>Cadastrar</button>
-        <button ngbDropdownItem>Listar</button>
+        <button ngbDropdownItem>Listar</button>        
         </div>
     </div>
     <div ngbDropdown class="d-inline-block">
         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Quarto</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem>Cadastrar</button>
-        <button ngbDropdownItem>Listar</button>
+            <a routerLink="/quarto/cadastrar"><button ngbDropdownItem>Cadastrar</button></a>
+            <a routerLink="/quarto/listar"><button ngbDropdownItem>Listar</button></a>
         </div>
     </div>
     <div ngbDropdown class="d-inline-block">
