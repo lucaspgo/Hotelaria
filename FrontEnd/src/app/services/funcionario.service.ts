@@ -10,13 +10,22 @@ export class FuncionarioService {
   private baseUrl = "http://localhost:5000/api/funcionario"
   constructor(private http: HttpClient) { }
 
-  listFuncionario(): Observable<Funcionario[]>{
+  getById(id: number): Observable<Funcionario>{
+    return this.http.get<Funcionario>(`${this.baseUrl}/getbyid/${id}`)
+  }
+
+  list(): Observable<Funcionario[]>{
     return this.http.get<Funcionario[]>(`${this.baseUrl}/list`)
   }
-  createFuncionario(funcionario: Funcionario): Observable<Funcionario>{
+  create(funcionario: Funcionario): Observable<Funcionario>{
     return this.http.post<Funcionario>(`${this.baseUrl}/create`, funcionario)
   }
-  loginFuncionario(funcionario: Funcionario): Observable<Funcionario>{
-    return this.http.post<Funcionario>(`${this.baseUrl}/login`, funcionario)
-  }
-}
+
+  save(funcionario: Funcionario): Observable<Funcionario>{
+    if(funcionario.id){
+      return this.http.put<Funcionario>(`${this.baseUrl}/update`, funcionario)    
+    }
+    console.log(funcionario);
+    return this.http.post<Funcionario>(`${this.baseUrl}/create`, funcionario)
+    }
+}  

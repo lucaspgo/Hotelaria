@@ -1,13 +1,70 @@
-<div id="container">
-    <div id="login-card">
-        <h1>Cadastro - Hotelaria</h1>
-        <p>Seja bem-vindo à hotelaria</p>
-        <input type="text" placeholder="Insira seu CPF" [(ngModel)]="cpf">
-        <input type="text" placeholder="Insira seu Nome" [(ngModel)]="nome">
-        <input type="text" placeholder="Insira seu Login" [(ngModel)]="login">
-        <input type="password" placeholder="Insira sua Senha" [(ngModel)]="senha">
-
-        <button (click)="cadastrarFuncionario()">Cadastrar</button>
+ 
+<form class="needs-validation" novalidate [formGroup]="form">
+    <div id="card">
+      <h1>Cadastro - Funcionario</h1>
+      <div class="col-md-12">
+        <label for="cpf" class="form-label">CPF</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cpf"
+          formControlName="cpf"
+          [ngClass]="{ 'is-invalid': submitted && hasError('cpf') }"
+          required
+        />
+        <div class="invalid-feedback" *ngIf="hasError('cpf') && hasError('cpf')!['required']">
+            Por favor informe um numero de cpf
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="nome" class="form-label">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          formControlName="nome"
+          [ngClass]="{ 'is-invalid': submitted && hasError('nome') }"
+          required
+        />
+        <div class="invalid-feedback" *ngIf="hasError('nome') && hasError('nome')!['required']">
+          Por favor informe seu nome
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="login" class="form-label">Login</label>
+        <input
+          type="text"
+          class="form-control"
+          id="login"
+          formControlName="login"
+          [ngClass]="{ 'is-invalid': submitted && hasError('login') }"
+          required
+        />
+        <div class="invalid-feedback" *ngIf="hasError('login') && hasError('login')!['required']">
+          Por favor informe um login
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="senha" class="form-label">Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          id="senha"
+          formControlName="senha"
+          [ngClass]="{ 'is-invalid': submitted && hasError('numero') }"
+          required
+        />
+        <div class="invalid-feedback" *ngIf="hasError('senha') && hasError('senha')!['required']">
+          Por favor informe uma senha
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()" style="margin-top: 30px;">
+        Salvar
+      </button>
+      <button type="submit" class="btn btn-default" (click)="onCancel()">
+        Cancelar
+      </button>
     </div>
-</div>
+  </form>
+  
 

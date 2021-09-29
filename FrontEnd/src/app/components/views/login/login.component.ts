@@ -20,10 +20,10 @@ export class LoginComponent implements OnInit {
       login: this.login,
       senha: this.senha,
     };
-    this.service.loginFuncionario(funcionario).subscribe((funcionario) =>{
-      console.log('funcionario');
-      // this.router.navigate([""]);
-    })
+    // this.service.loginFuncionario(funcionario).subscribe((funcionario) =>{
+    //   console.log('funcionario');
+    //   // this.router.navigate([""]);
+    // })
   }
 
 

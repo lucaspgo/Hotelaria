@@ -13,6 +13,8 @@
           <td>{{funcionario.nome}}</td>
           <td>{{ funcionario.cpf }}</td>
           <td>{{funcionario.criadoEm}}</td>
+          <td><button (click)="onEdit(funcionario.id!)">Editar</button></td>
+          <td><a (click)="onDelete(funcionario)"><button>Excluir</button></a></td>
         </tr>
         </tbody>
       </table>

@@ -1,5 +1,6 @@
 import { FuncionarioService } from '../../../../services/funcionario.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { Funcionario } from 'src/app/models/Funcionario';
 
 @Component({
@@ -9,12 +10,17 @@ import { Funcionario } from 'src/app/models/Funcionario';
 })
 export class ListarFuncionarioComponent implements OnInit {
   funcionarios: Funcionario[] = [];
-  constructor(private service: FuncionarioService) {}
+  constructor(private service: FuncionarioService, private router: Router) {}
 
   ngOnInit(): void {
-    this.service.listFuncionario().subscribe((funcionarios) => {
+    this.service.list().subscribe((funcionarios) => {
       this.funcionarios = funcionarios;
-  });
+    });
   }
 
+  onEdit(id: number): void {
+    this.router.navigate([`funcionario/editar/${id}`]);
+  }
+
+  onDelete(funcionario: Funcionario): void {}
 }
