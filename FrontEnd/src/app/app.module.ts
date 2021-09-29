@@ -13,6 +13,8 @@ import { ListarFuncionarioComponent } from './components/views/funcionario/lista
 import { ListarQuartoComponent } from './components/views/quarto/listar-quarto/listar-quarto.component';
 import { ExcluirQuartoComponent } from './components/views/quarto/excluir-quarto/excluir-quarto.component';
 import { FormQuartoComponent } from './components/views/quarto/form-quarto/form-quarto.component';
+import { FormClienteComponent } from './components/views/cliente/form-cliente/form-cliente.component';
+import { ListarClienteComponent } from './components/views/cliente/listar-cliente/listar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { FormQuartoComponent } from './components/views/quarto/form-quarto/form-
     ListarQuartoComponent,
     ExcluirQuartoComponent,
     FormQuartoComponent,
+    FormClienteComponent,
+    ListarClienteComponent,
   ],
   imports: [
     BrowserModule,
