@@ -48,7 +48,7 @@ namespace API.Controllers
         public IActionResult GetById([FromRoute]int id)
         {
             Cliente cliente = _context.Clientes.Find(id);
-            if(cliente != null)
+            if(cliente == null)
             {
                 return NotFound();
             }

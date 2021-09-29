@@ -63,7 +63,7 @@ namespace API.Controllers
         public IActionResult GetById([FromRoute] int id)
         {
             Funcionario funcionario = _context.Funcionarios.Find(id);
-            if (funcionario != null)
+            if (funcionario == null)
             {
                 return NotFound();
             }

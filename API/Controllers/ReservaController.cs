@@ -48,7 +48,7 @@ namespace API.Controllers
         public IActionResult GetById([FromRoute]int id)
         {
             Reserva reserva = _context.Reservas.Find(id);
-            if(reserva != null)
+            if(reserva == null)
             {
                 return NotFound();
             }
