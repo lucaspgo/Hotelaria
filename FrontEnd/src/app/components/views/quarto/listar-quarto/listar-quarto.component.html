@@ -11,10 +11,10 @@
         </thead>
         <tbody>
         <tr *ngFor="let quarto of quartos;">
-          <td>{{quarto.numero}}</td>
+          <td>{{ quarto.numero }}</td>
           <td>{{ quarto.precoDiaria }}</td>
-          <td><a routerLink="/quarto/editar/{{ quarto.id }}"><button>Editar</button></a></td>
-          <td><a routerLink="/quarto/excluir"><button>Excluir</button></a></td>
+          <td><button (click)="onEdit(quarto.id!)">Editar</button></td>
+          <td><a (click)="onDelete(quarto)"><button>Excluir</button></a></td>
         </tr>
         </tbody>
       </table>
