@@ -1,7 +1,7 @@
 export interface Cliente {
-    id?: string;
+    id?: number;
     cpf: string;
     nome: string;
-    reservas: string;
+    reservas?: [];
     criadoEm?: string;
 }

@@ -1,1 +1,40 @@
-<p>form-cliente works!</p>
+<form class="needs-validation" novalidate [formGroup]="form">
+    <div id="card">
+      <h1>Cadastro - Cliente</h1>
+      <div class="col-md-12">
+        <label for="nome" class="form-label">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          formControlName="nome"
+          [ngClass]="{ 'is-invalid': submitted && hasError('nome') }"
+          required
+        />
+        <div class="invalid-feedback" *ngIf="hasError('nome') && hasError('nome')!['required']">
+            Por favor informe um Nome
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="cpf" class="form-label">CPF</label>
+        <input
+          type="number"
+          class="form-control"
+          id="cpf"
+          formControlName="cpf"
+          [ngClass]="{ 'is-invalid': submitted && hasError('cpf') }"
+          required
+        />
+        <div class="invalid-feedback" *ngIf="hasError('cpf') && hasError('cpf')!['required']">
+          Por favor informe um Cpf
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()" style="margin-top: 30px;">
+        Salvar
+      </button>
+      <button type="submit" class="btn btn-default" (click)="onCancel()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+  
