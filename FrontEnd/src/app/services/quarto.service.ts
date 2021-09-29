@@ -28,4 +28,8 @@ export class QuartoService {
     console.log(quarto);
     return this.http.post<Quarto>(`${this.baseUrl}/create`, quarto)
   }
+
+  delete(quarto: Quarto): Observable<Quarto>{
+    return this.http.delete<Quarto>(`${this.baseUrl}/delete/${quarto.id}`)
+  }
 }

@@ -58,22 +58,16 @@ namespace API.Controllers
         }
 
         [HttpDelete]
-        [Route("delete/{name}")]
-        public IActionResult Delete([FromRoute] string name)
+        [Route("delete/{id}")]
+        public IActionResult Delete([FromRoute] Quarto quarto)
         {
-            // Buscar objeto na tabela com base no nome
-            Quarto produto = _context.Quartos.FirstOrDefault
-            (
-                produto => produto.Numero.Equals(name) // && ||
-            );
-
-            if(produto != null)
+            if(quarto == null)
             {
                 return NotFound();
             }
-            _context.Quartos.Remove(produto);
+            _context.Quartos.Remove(quarto);
             _context.SaveChanges();
-            return Delete("");
+            return Ok();
         }
     }
 }

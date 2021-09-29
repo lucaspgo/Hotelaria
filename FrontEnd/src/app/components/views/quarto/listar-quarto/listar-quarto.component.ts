@@ -22,5 +22,9 @@ export class ListarQuartoComponent implements OnInit {
     this.router.navigate([`quarto/editar/${id}`]);
   }
 
-  onDelete(quarto: Quarto): void {}
+  onDelete(quarto: Quarto): void {
+    this.service.delete(quarto).subscribe(() =>{
+      window.location.reload();
+    })
+  }
 }
