@@ -6,6 +6,8 @@
           <th scope="col">Numero</th>
           <th scope="col">Quarto</th>
           <th scope="col">Cliente</th>
+          <th scope="col">Check-in</th>
+          <th scope="col">Check-out</th>
           <th scope="col">Editar</th>
           <th scope="col">Excluir</th>
         </tr>
@@ -15,6 +17,8 @@
           <td>{{ reserva.numero }}</td>
           <td>{{ reserva.quarto.numero }}</td>
           <td>{{ reserva.cliente.nome }}</td>
+          <td>{{ reserva.inicio }}</td>
+          <td>{{ reserva.fim }}</td>
           <td><button id="edit-button" (click)="onEdit(reserva.id!)">Editar</button></td>
           <td><a (click)="onDelete(reserva)"><button id="delete-button">Excluir</button></a></td>
         </tr>
