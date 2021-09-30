@@ -11,10 +11,7 @@ import { ListarReservaComponent } from './components/views/reserva/listar-reserv
 import { FormReservaComponent } from './components/views/reserva/form-reserva/form-reserva.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    component: LoginComponent,
-  },
+
   {
     path: "funcionario/cadastrar",
     component: CadastrarFuncionarioComponent, 
@@ -29,6 +26,10 @@ const routes: Routes = [
   },
   {
     path: "quarto/listar",
+    component: ListarQuartoComponent, 
+  },
+  {
+    path: "",
     component: ListarQuartoComponent, 
   },
   {
