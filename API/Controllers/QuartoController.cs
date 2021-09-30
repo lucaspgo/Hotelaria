@@ -24,7 +24,6 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create([FromBody]Quarto quarto)
         {
-            Console.WriteLine("oi");
             _context.Quartos.Add(quarto);
             _context.SaveChanges();
             return Created("", quarto);

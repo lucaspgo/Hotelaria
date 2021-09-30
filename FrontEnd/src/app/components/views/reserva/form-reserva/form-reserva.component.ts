@@ -19,6 +19,7 @@ export class FormReservaComponent implements OnInit {
   submitted = false;
   clientes: Cliente[] = [];
   quartos: Quarto[] = [];
+  message?: string;
 
   constructor(
     private fb: FormBuilder,
@@ -74,7 +75,6 @@ export class FormReservaComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    console.log(this.form.value);
     if (this.form.valid) {
       let reserva: Reserva;
       if (this.id) {
@@ -95,9 +95,15 @@ export class FormReservaComponent implements OnInit {
           fim: this.form.value["fim"],
         };
       }
-      this.service.save(reserva).subscribe((reserva) => {
-        this.router.navigate(["reserva/listar"]);
-      });
+      this.service.save(reserva).subscribe(
+        success => {
+          console.log(success);
+          this.router.navigate(["reserva/listar"]);
+        },
+        error => {
+          this.message = error.error;
+        }
+      );
     }
   }
 
@@ -105,10 +111,16 @@ export class FormReservaComponent implements OnInit {
     return this.form.get(field)!.errors;
   }
 
+  hasMessage() {
+    if(this.message != null){
+      return true;
+    }
+    return false;
+  }
+
   onCancel(): void {
     this.submitted = false;
     this.form.reset();
-    console.log("onCancel");
   }
 
   changeCliente(e: any) {

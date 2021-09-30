@@ -45,9 +45,9 @@
         formControlName="cliente"
         class="form-control"
         id="cliente"
-        required        
+        required
       >
-        <option *ngFor="let cliente of clientes" [ngValue]="cliente" >
+        <option *ngFor="let cliente of clientes" [ngValue]="cliente">
           {{ cliente.nome }}
         </option>
       </select>
@@ -77,23 +77,32 @@
       </div>
     </div>
     <div class="col-md-12">
-        <label for="fim" class="form-label">Fim</label>
-        <input
-          type="datetime-local"
-          class="form-control"
-          id="fim"
-          formControlName="fim"
-          (change)="changeFim($event)"
-          [ngClass]="{ 'is-invalid': submitted && hasError('fim') }"
-          required
-        />
-        <div
-          class="invalid-feedback"
-          *ngIf="hasError('fim') && hasError('fim')!['required']"
-        >
-          Por favor informe uma data de fim
-        </div>
+      <label for="fim" class="form-label">Fim</label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="fim"
+        formControlName="fim"
+        (change)="changeFim($event)"
+        [ngClass]="{ 'is-invalid': submitted && hasError('fim') }"
+        required
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="hasError('fim') && hasError('fim')!['required']"
+      >
+        Por favor informe uma data de fim
       </div>
+    </div>
+    <div class="col-md-12">
+      <div
+        class="text-danger"
+        *ngIf="hasMessage()"
+      >
+        {{message}}
+      </div>
+    </div>
+
     <button
       type="submit"
       class="btn btn-primary"
