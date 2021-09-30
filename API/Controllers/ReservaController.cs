@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 
@@ -19,11 +20,26 @@ namespace API.Controllers
         {
             _context = context;
         }
-        
+
         [HttpPost]
         [Route("create")]
-        public IActionResult Create([FromBody]Reserva reserva)
+        public IActionResult Create([FromBody] Reserva reserva)
         {
+            Cliente cliente = _context.Clientes.Find(reserva.Cliente.Id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            Quarto quarto = _context.Quartos.Find(reserva.Quarto.Id);
+            if (quarto == null)
+            {
+                return NotFound();
+            }
+            reserva.Quarto = quarto;
+            reserva.Cliente = cliente;
+
+            Console.WriteLine(reserva.Quarto.Id);
+            Console.WriteLine(reserva.Cliente.Id);
             _context.Reservas.Add(reserva);
             _context.SaveChanges();
             return Created("", reserva);
@@ -31,8 +47,24 @@ namespace API.Controllers
 
         [HttpPut]
         [Route("update")]
-        public IActionResult Update([FromBody]Reserva reserva)
+        public IActionResult Update([FromBody] Reserva reserva)
         {
+            Cliente cliente = _context.Clientes.Find(reserva.Cliente.Id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            Quarto quarto = _context.Quartos.Find(reserva.Quarto.Id);
+            if (quarto == null)
+            {
+                return NotFound();
+            }
+            reserva.Quarto = quarto;
+            reserva.Cliente = cliente;
+
+            Console.WriteLine(reserva.Quarto.Id);
+            Console.WriteLine(reserva.Cliente.Id);
+
             _context.Reservas.Update(reserva);
             _context.SaveChanges();
             return Created("", reserva);
@@ -40,15 +72,15 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("list")]
-        public IActionResult List() => Ok(_context.Reservas.ToList());
+        public IActionResult List() => Ok(_context.Reservas.Include(x => x.Cliente).Include(x => x.Quarto).AsNoTracking().ToList());
 
 
         [HttpGet]
         [Route("getbyid/{id}")]
-        public IActionResult GetById([FromRoute]int id)
+        public IActionResult GetById([FromRoute] int id)
         {
-            Reserva reserva = _context.Reservas.Find(id);
-            if(reserva == null)
+            Reserva reserva = _context.Reservas.Include(x => x.Cliente).Include(x => x.Quarto).Where(x => x.Id == id).AsNoTracking().FirstOrDefault();
+            if (reserva == null)
             {
                 return NotFound();
             }

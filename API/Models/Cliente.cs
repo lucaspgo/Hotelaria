@@ -10,12 +10,10 @@ namespace API.Models
         public Cliente()
         {
             CriadoEm = DateTime.Now;
-            Reservas = new List<Reserva>();
         } 
         public int Id { get; set; }
-        public int Cpf { get; set; }
+        public string Cpf { get; set; }
         public string Nome { get; set; }
-        public List<Reserva> Reservas { get; set; }
         public DateTime CriadoEm { get; set; }
     }
 }

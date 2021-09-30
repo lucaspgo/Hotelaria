@@ -7,6 +7,8 @@ import { ListarQuartoComponent } from './components/views/quarto/listar-quarto/l
 import { FormQuartoComponent } from './components/views/quarto/form-quarto/form-quarto.component';
 import { ListarClienteComponent } from './components/views/cliente/listar-cliente/listar-cliente.component';
 import { FormClienteComponent } from './components/views/cliente/form-cliente/form-cliente.component';
+import { ListarReservaComponent } from './components/views/reserva/listar-reserva/listar-reserva.component';
+import { FormReservaComponent } from './components/views/reserva/form-reserva/form-reserva.component';
 
 const routes: Routes = [
   {
@@ -50,8 +52,16 @@ const routes: Routes = [
     component: FormClienteComponent, 
   },
   {
-    path: "cliente/excluir",
-    component: ListarClienteComponent, 
+    path: "reserva/listar",
+    component: ListarReservaComponent, 
+  },
+  {
+    path: "reserva/cadastrar",
+    component: FormReservaComponent, 
+  },
+  {
+    path: "reserva/editar/:id",
+    component: FormReservaComponent, 
   },
 ];
 

@@ -24,6 +24,7 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create([FromBody]Cliente cliente)
         {
+            Console.WriteLine("Entrou");
             _context.Clientes.Add(cliente);
             _context.SaveChanges();
             return Created("", cliente);
