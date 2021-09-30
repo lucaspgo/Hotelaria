@@ -17,8 +17,8 @@
           <td>{{ reserva.numero }}</td>
           <td>{{ reserva.quarto.numero }}</td>
           <td>{{ reserva.cliente.nome }}</td>
-          <td>{{ reserva.inicio }}</td>
-          <td>{{ reserva.fim }}</td>
+          <td>{{ reserva.inicio | date : 'dd/MM/yyyy HH:mm' }} </td>
+          <td>{{ reserva.fim | date : 'dd/MM/yyyy HH:mm'}}</td>
           <td><button id="edit-button" (click)="onEdit(reserva.id!)">Editar</button></td>
           <td><a (click)="onDelete(reserva)"><button id="delete-button">Excluir</button></a></td>
         </tr>

@@ -2,6 +2,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { LoginComponent } from "./components/views/login/login.component";
 import { CadastrarFuncionarioComponent } from './components/views/funcionario/cadastrar-funcionario/cadastrar-funcionario.component';
 import { NavbarComponent } from './components/views/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
 import { ListarFuncionarioComponent } from './components/views/funcionario/listar-funcionario/listar-funcionario.component';
 import { ListarQuartoComponent } from './components/views/quarto/listar-quarto/listar-quarto.component';
 import { FormQuartoComponent } from './components/views/quarto/form-quarto/form-quarto.component';
@@ -37,7 +40,9 @@ import { ListarReservaComponent } from './components/views/reserva/listar-reserv
     HttpClientModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

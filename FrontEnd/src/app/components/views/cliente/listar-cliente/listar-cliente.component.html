@@ -12,7 +12,7 @@
         <tbody>
         <tr *ngFor="let cliente of clientes;">
           <td>{{ cliente.nome }}</td>
-          <td>{{ cliente.cpf }}</td>
+          <td>{{ cliente.cpf | mask: '000.000.000-00'}}</td>
           <td><button id="edit-button" (click)="onEdit(cliente.id!)">Editar</button></td>
           <td><a (click)="onDelete(cliente)"><button id="delete-button">Excluir</button></a></td>
         </tr>
