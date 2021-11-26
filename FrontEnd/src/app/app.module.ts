@@ -19,6 +19,7 @@ import { FormClienteComponent } from './components/views/cliente/form-cliente/fo
 import { ListarClienteComponent } from './components/views/cliente/listar-cliente/listar-cliente.component';
 import { FormReservaComponent } from './components/views/reserva/form-reserva/form-reserva.component';
 import { ListarReservaComponent } from './components/views/reserva/listar-reserva/listar-reserva.component';
+import { AuthService } from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { ListarReservaComponent } from './components/views/reserva/listar-reserv
     CommonModule,
     NgxMaskModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

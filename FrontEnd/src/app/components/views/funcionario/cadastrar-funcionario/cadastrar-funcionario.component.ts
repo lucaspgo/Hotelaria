@@ -63,7 +63,7 @@ export class CadastrarFuncionarioComponent implements OnInit {
       }
       
       this.service.save(funcionario).subscribe((funcionario) =>{
-        this.router.navigate(["funcionario/listar"]);
+        this.router.navigate(["/"]);
       })
     }
   }

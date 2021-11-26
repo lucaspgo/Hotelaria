@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { Funcionario } from './../../../models/Funcionario';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +12,7 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 export class LoginComponent implements OnInit {
   login!: string;
   senha!: string;
-  constructor(private router: Router, private service: FuncionarioService) {}
+  constructor(private router: Router, private service: FuncionarioService, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -20,10 +21,7 @@ export class LoginComponent implements OnInit {
       login: this.login,
       senha: this.senha,
     };
-    // this.service.loginFuncionario(funcionario).subscribe((funcionario) =>{
-    //   console.log('funcionario');
-    //   // this.router.navigate([""]);
-    // })
+    this.authService.loginFuncionario(funcionario);
   }
 
 

@@ -32,4 +32,8 @@ export class FuncionarioService {
   delete(funcionario: Funcionario): Observable<Funcionario>{
     return this.http.delete<Funcionario>(`${this.baseUrl}/delete/${funcionario.id}`)
   }
+
+  login(funcionario: Funcionario): Observable<Funcionario>{
+    return this.http.post<Funcionario>(`${this.baseUrl}/login`, funcionario)
+  }
 }  
