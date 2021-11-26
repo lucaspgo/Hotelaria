@@ -24,7 +24,9 @@ export class ListarFuncionarioComponent implements OnInit {
 
   onDelete(funcionario: Funcionario): void {
     this.service.delete(funcionario).subscribe(() =>{
-      window.location.reload();
+      this.service.list().subscribe((funcionarios) => {
+        this.funcionarios = funcionarios;
+      });
     })
   }
 }

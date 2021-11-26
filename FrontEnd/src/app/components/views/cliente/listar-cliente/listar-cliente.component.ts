@@ -23,7 +23,9 @@ export class ListarClienteComponent implements OnInit {
 
   onDelete(cliente: Cliente): void {
     this.service.delete(cliente).subscribe(() =>{
-      window.location.reload();
+      this.service.list().subscribe((clientes) => {
+        this.clientes = clientes;
+      });
     })
   }
 }

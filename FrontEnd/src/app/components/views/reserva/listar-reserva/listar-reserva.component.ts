@@ -25,7 +25,9 @@ export class ListarReservaComponent implements OnInit {
 
   onDelete(reserva: Reserva): void {
     this.service.delete(reserva).subscribe(() =>{
-      window.location.reload();
+      this.service.list().subscribe((reservas) => {
+        this.reservas = reservas;
+      });
     })
   }
 

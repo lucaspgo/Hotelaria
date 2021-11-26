@@ -24,7 +24,9 @@ export class ListarQuartoComponent implements OnInit {
 
   onDelete(quarto: Quarto): void {
     this.service.delete(quarto).subscribe(() =>{
-      window.location.reload();
+      this.service.list().subscribe((quartos) => {
+        this.quartos = quartos;
+      });
     })
   }
 }
